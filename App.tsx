@@ -3,13 +3,9 @@ import {store} from './src/Store/store';
 import {Provider} from 'react-redux';
 import Router from './Router';
 import SplashScreen from 'react-native-splash-screen';
-import {
-  NavigationContainer,
-  ParamListBase,
-  TypedNavigator,
-  StackNavigationState,
-  TabNavigationState,
-} from '@react-navigation/native';
+import {NavigationContainer} from '@react-navigation/native';
+import {NativeBaseProvider} from 'native-base';
+import {theme} from './src/Theme/theme';
 
 function App() {
   React.useEffect(() => {
@@ -17,9 +13,11 @@ function App() {
   }, []);
   return (
     <Provider store={store}>
-      <NavigationContainer>
-        <Router />
-      </NavigationContainer>
+      <NativeBaseProvider theme={theme}>
+        <NavigationContainer>
+          <Router />
+        </NavigationContainer>
+      </NativeBaseProvider>
     </Provider>
   );
 }

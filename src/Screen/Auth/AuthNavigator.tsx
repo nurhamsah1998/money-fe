@@ -13,10 +13,23 @@ import {NativeStackNavigatorProps} from '@react-navigation/native-stack/lib/type
 import SignIn from './SignIn';
 
 function AuthNavigator() {
-  const Stack = createNativeStackNavigator();
+  const Stack: TypedNavigator<
+    ParamListBase,
+    StackNavigationState<ParamListBase>,
+    NativeStackNavigationOptions,
+    NativeStackNavigationEventMap,
+    ({
+      id,
+      initialRouteName,
+      children,
+      screenListeners,
+      screenOptions,
+      ...rest
+    }: NativeStackNavigatorProps) => JSX.Element
+  > = createNativeStackNavigator();
   return (
     <>
-      <Stack.Navigator screenOptions={{headerShown: true, animation: 'none'}}>
+      <Stack.Navigator screenOptions={{headerShown: false, animation: 'none'}}>
         <Stack.Screen name="SignIn" component={SignIn} />
       </Stack.Navigator>
     </>

@@ -48,32 +48,31 @@ const Tab: TypedNavigator<
 > = createBottomTabNavigator();
 
 function Router() {
-  // const isUserAuth = useSelector((props: any) => props.auth);
-  // const dispatch = useDispatch();
-  // const getUserToken: () => Promise<void> = async () => {
-  //   try {
-  //     const value = await AsyncStorage.getItem('@user_access_token');
-  //     if (value !== null) {
-  //       dispatch(signIn());
-  //     } else {
-  //       dispatch(signOut());
-  //     }
-  //   } catch (e) {
-  //     // error reading value
-  //   }
-  // };
-  // React.useEffect(() => {
-  //   getUserToken();
-  // }, []);
-  // if (isUserAuth.isLoading) {
-  //   return (
-  //     <View>
-  //       <Text>asdjkha skjashdkjadh kajbjkdbf askjdfbsajkd fbaskjldbsad </Text>
-  //     </View>
-  //   );
-  // }
-  // return isUserAuth.isAuth ? <HomeNavigator /> : <AuthNavigator />;
-  return <HomeNavigator />;
+  const isUserAuth = useSelector((props: any) => props.auth);
+  const dispatch = useDispatch();
+  const getUserToken: () => Promise<void> = async () => {
+    try {
+      const value = await AsyncStorage.getItem('@user_access_token');
+      if (value !== null) {
+        dispatch(signIn());
+      } else {
+        dispatch(signOut());
+      }
+    } catch (e) {
+      // error reading value
+    }
+  };
+  React.useEffect(() => {
+    getUserToken();
+  }, []);
+  if (isUserAuth.isLoading) {
+    return (
+      <View>
+        <Text>Loading</Text>
+      </View>
+    );
+  }
+  return isUserAuth.isAuth ? <HomeNavigator /> : <AuthNavigator />;
 }
 
 export default Router;

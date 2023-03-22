@@ -2,26 +2,21 @@ import React from 'react';
 import {Input, FormControl} from 'native-base';
 import {IInputComponentType} from 'native-base/lib/typescript/components/composites/Tag/types';
 
-function TextField({
-  placeholder,
-  label,
-  ...props
-}: {
-  placeholder?: string | undefined;
+interface NURHAMSAH extends IInputComponentType {
   label?: string;
-  props?: IInputComponentType;
-}) {
+}
+
+const TextField: NURHAMSAH = () => {
   return (
     <FormControl>
-      <FormControl.Label>{label}</FormControl.Label>
+      <FormControl.Label></FormControl.Label>
       <Input
         isInvalid
-        placeholder={placeholder}
+        placeholder={'placeholder'}
         _focus={{backgroundColor: 'gray.100', borderColor: 'primary.500'}}
-        {...props}
       />
     </FormControl>
   );
-}
+};
 
 export default TextField;

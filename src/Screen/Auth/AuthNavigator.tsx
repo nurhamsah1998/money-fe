@@ -10,7 +10,7 @@ import {
   NativeStackNavigationEventMap,
 } from '@react-navigation/native-stack';
 import {NativeStackNavigatorProps} from '@react-navigation/native-stack/lib/typescript/src/types';
-import SignIn from './SignIn';
+import SignIn from './SigninSection/SignIn';
 
 function AuthNavigator() {
   const Stack: TypedNavigator<

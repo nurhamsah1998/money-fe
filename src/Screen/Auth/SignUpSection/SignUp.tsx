@@ -4,32 +4,30 @@ import Typography from 'Component/Typography';
 import {Formik} from 'formik';
 import {Box, Button, Center, ScrollView} from 'native-base';
 import Logo from 'Assets/Brand/inline_logo.svg';
-import GoogleIcon from 'Assets/google-icon.svg';
-import {KeyboardAvoidingView, Platform} from 'react-native';
 import Form from './Form';
 
 export interface VALUE {
-  userName: string;
+  name: string;
+  email: string;
   password: string;
 }
 const initialValues: VALUE = {
-  userName: '',
+  name: '',
+  email: '',
   password: '',
 };
 
-function SignIn({navigation}: {navigation: any}) {
+function SignUp({navigation}: {navigation: any}) {
   const dispatch = useDispatch();
   const formRef: React.MutableRefObject<null> | any = React.useRef(null);
   return (
-    <ScrollView>
-      {/* <KeyboardAvoidingView
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}> */}
+    <ScrollView style={{flex: 1}}>
       <Box px={5}>
         <Center mt={-10}>
           <Logo width={200} />
         </Center>
         <Typography style={{textAlign: 'center'}} fontSize="2xl">
-          Sign In
+          Sign Up
         </Typography>
         <Formik
           innerRef={formRef}
@@ -47,26 +45,18 @@ function SignIn({navigation}: {navigation: any}) {
         </Formik>
         <Box mt={5}>
           <Typography style={{textAlign: 'center'}} fontSize="sm">
-            Doesnt have account ? Dont worry we got you
+            Already have account ?
           </Typography>
           <Button
             mt={3}
-            onPress={() => navigation.navigate('SignUp')}
+            onPress={() => navigation.goBack()}
             colorScheme="success">
-            Sign Up
-          </Button>
-          <Button
-            variant="outline"
-            borderColor="primary.500"
-            mt={3}
-            leftIcon={<GoogleIcon width={20} height={20} />}>
-            Continue with Google
+            Sign In
           </Button>
         </Box>
       </Box>
-      {/* </KeyboardAvoidingView> */}
     </ScrollView>
   );
 }
 
-export default SignIn;
+export default SignUp;

@@ -1,10 +1,17 @@
 import React from 'react';
 import {Input, FormControl} from 'native-base';
+import {ResponsiveValue} from 'native-base/lib/typescript/components/types';
 import {ITagProps} from 'native-base/lib/typescript/components/composites/Tag/types';
 import {
   NativeSyntheticEvent,
   TextInputSubmitEditingEventData,
 } from 'react-native';
+
+interface VARIANT {
+  variant?: ResponsiveValue<
+    'outline' | 'rounded' | (string & {}) | 'underlined' | 'filled' | 'unstyled'
+  >;
+}
 
 interface PROPS extends ITagProps {
   label?: string;
@@ -18,6 +25,9 @@ interface PROPS extends ITagProps {
   onSubmitEditing?:
     | ((e: NativeSyntheticEvent<TextInputSubmitEditingEventData>) => void)
     | undefined;
+  variant?: VARIANT | any;
+  InputLeftElement?: JSX.Element;
+  InputRightElement?: JSX.Element;
 }
 
 const TextField: React.FC<PROPS> = ({
@@ -27,9 +37,12 @@ const TextField: React.FC<PROPS> = ({
   onChangeText,
   value,
   type,
+  variant,
   defaultValue,
   onSubmitEditing,
   display,
+  InputLeftElement,
+  InputRightElement,
 }) => {
   return (
     <FormControl>
@@ -39,6 +52,9 @@ const TextField: React.FC<PROPS> = ({
         isInvalid={isInvalid}
         placeholder={placeholder}
         value={value}
+        InputLeftElement={InputLeftElement}
+        InputRightElement={InputRightElement}
+        variant={variant}
         onSubmitEditing={onSubmitEditing}
         defaultValue={defaultValue}
         display={display}

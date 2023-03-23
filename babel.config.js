@@ -9,6 +9,7 @@ module.exports = {
         alias: {
           Component: './src/Component',
           Assets: './src/Assets',
+          src: './src',
         },
       },
     ],

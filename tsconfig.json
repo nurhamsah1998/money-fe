@@ -5,6 +5,7 @@
     "paths": {
       "Component/*": ["src/Component/*"],
       "Assets/*": ["src/Assets/*"],
+      "src/*": ["src/*"],
     }
   }
 }

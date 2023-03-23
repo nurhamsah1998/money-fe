@@ -5,9 +5,7 @@ import WhiteScreen from './WhiteScreen';
 function KeyboardDismiss({children}: {children: any}) {
   return (
     <WhiteScreen>
-      <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-        {children}
-      </TouchableWithoutFeedback>
+      <TouchableWithoutFeedback>{children}</TouchableWithoutFeedback>
     </WhiteScreen>
   );
 }

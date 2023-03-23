@@ -11,6 +11,7 @@ import {
 } from '@react-navigation/native-stack';
 import {NativeStackNavigatorProps} from '@react-navigation/native-stack/lib/typescript/src/types';
 import SignIn from './SigninSection/SignIn';
+import SignUp from './SignUpSection/SignUp';
 
 function AuthNavigator() {
   const Stack: TypedNavigator<
@@ -29,8 +30,9 @@ function AuthNavigator() {
   > = createNativeStackNavigator();
   return (
     <>
-      <Stack.Navigator screenOptions={{headerShown: false, animation: 'none'}}>
+      <Stack.Navigator screenOptions={{headerShown: false}}>
         <Stack.Screen name="SignIn" component={SignIn} />
+        <Stack.Screen name="SignUp" component={SignUp} />
       </Stack.Navigator>
     </>
   );

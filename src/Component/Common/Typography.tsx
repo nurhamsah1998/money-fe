@@ -1,14 +1,10 @@
 import React from 'react';
-import {Text} from 'native-base';
+import {Text, ITextProps} from 'native-base';
 import {ResponsiveValue} from 'native-base/lib/typescript/components/types';
 import {StyleProp, TextStyle} from 'react-native';
+import {InterfaceTextProps} from 'native-base/lib/typescript/components/primitives/Text/types';
 
-function Typography({
-  children,
-  fontWeight = 'normal',
-  fontSize = 'md',
-  style,
-}: {
+interface PROPS extends InterfaceTextProps {
   children: string | any;
   fontSize?: ResponsiveValue<
     | number
@@ -43,7 +39,14 @@ function Typography({
     | 'extraBlack'
   >;
   style?: StyleProp<TextStyle>;
-}) {
+}
+
+const Typography: React.FC<PROPS> = ({
+  style,
+  fontSize,
+  fontWeight,
+  children,
+}) => {
   return (
     <Text
       style={style}
@@ -53,6 +56,6 @@ function Typography({
       {children}
     </Text>
   );
-}
+};
 
 export default Typography;

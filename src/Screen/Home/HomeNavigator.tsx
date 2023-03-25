@@ -2,6 +2,7 @@ import * as React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Dashboard from './Dashboard/Dashboard';
+import {theme} from 'src/Theme/theme';
 
 function HomeNavigator() {
   const Tab = createBottomTabNavigator();
@@ -23,8 +24,8 @@ function HomeNavigator() {
           // You can return any component that you like here!
           return <Ionicons name={iconName} size={size} color={color} />;
         },
-        tabBarActiveTintColor: 'blue',
-        tabBarInactiveTintColor: 'blue',
+        tabBarActiveTintColor: theme.colors.primary[500],
+        tabBarInactiveTintColor: theme.colors.primary[500],
         headerShown: false,
         tabBarStyle: {
           position: 'absolute',

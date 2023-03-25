@@ -1,6 +1,6 @@
 import React from 'react';
 import {Box, Button, Icon, Pressable} from 'native-base';
-import TextField from 'Component/TextField';
+import TextField from 'Component/Common/TextField';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {theme} from 'src/Theme/theme';
 import GoogleIcon from 'Assets/google-icon.svg';

@@ -1,6 +1,6 @@
 import React from 'react';
 import {useDispatch} from 'react-redux';
-import Typography from 'Component/Typography';
+import Typography from 'Component/Common/Typography';
 import {Formik} from 'formik';
 import {Box, Button, Center, ScrollView} from 'native-base';
 import Logo from 'Assets/Brand/inline_logo.svg';

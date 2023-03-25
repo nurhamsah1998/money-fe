@@ -49,6 +49,7 @@ export const theme = extendTheme({
   colors: {
     primary: {
       200: '#e6ffff',
+      400: '#00b3b3',
       500: '#00abab',
     },
     secondary: {

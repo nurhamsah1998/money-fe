@@ -1,30 +1,31 @@
 import * as React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-
-import Dashboard from './Dashboard';
+import Dashboard from './Dashboard/Dashboard';
 
 function HomeNavigator() {
   const Tab = createBottomTabNavigator();
-
+  const iconNavbar = [
+    {iconName: 'home', name: 'Home'},
+    {iconName: 'search', name: 'Search'},
+    {iconName: 'wysiwyg', name: 'Orders'},
+    {iconName: 'account-circle', name: 'Account'},
+  ];
   return (
     <Tab.Navigator
       screenOptions={({route}) => ({
         tabBarIcon: ({focused, color, size}) => {
           let iconName;
-          if (route.name === 'Dashboard') {
-            iconName = focused
-              ? 'cloud-download'
-              : 'ios-information-circle-outline';
-          } else if (route.name === 'Settings') {
-            iconName = focused ? 'ios-list' : 'ios-list-outline';
+          const pick = iconNavbar.find(i => i?.name === route.name);
+          if (pick) {
+            iconName = focused ? pick.iconName : pick.iconName;
           }
-
           // You can return any component that you like here!
           return <Ionicons name={iconName} size={size} color={color} />;
         },
         tabBarActiveTintColor: 'blue',
         tabBarInactiveTintColor: 'blue',
+        headerShown: false,
         tabBarStyle: {
           position: 'absolute',
           bottom: 20,
@@ -33,10 +34,10 @@ function HomeNavigator() {
           right: 10,
           borderRadius: 20,
           shadowColor: '#000',
-          backgroundColor: 'pink',
+          // backgroundColor: 'pink',
         },
       })}>
-      <Tab.Screen name="Dashboard" component={Dashboard} />
+      <Tab.Screen name="Home" component={Dashboard} />
     </Tab.Navigator>
   );
 }

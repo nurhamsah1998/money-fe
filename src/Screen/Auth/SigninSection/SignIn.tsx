@@ -52,13 +52,15 @@ function SignIn({navigation}: {navigation: any}) {
           <Button
             mt={3}
             onPress={() => navigation.navigate('SignUp')}
-            colorScheme="success">
+            colorScheme="success"
+            size="lg">
             Sign Up
           </Button>
           <Button
             variant="outline"
             borderColor="primary.500"
             mt={3}
+            size="lg"
             leftIcon={<GoogleIcon width={20} height={20} />}>
             Continue with Google
           </Button>

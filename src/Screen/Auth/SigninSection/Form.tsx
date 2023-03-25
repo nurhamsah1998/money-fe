@@ -75,6 +75,7 @@ function Form({
       <Button
         // colorScheme={theme.colors.primary[500]}
         mt={10}
+        size="lg"
         onPress={() => formRef.current?.handleSubmit()}>
         Sign in
       </Button>

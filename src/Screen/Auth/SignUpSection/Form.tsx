@@ -94,6 +94,7 @@ function Form({
       <Button
         // colorScheme={theme.colors.primary[500]}
         mt={10}
+        size="lg"
         onPress={() => formRef.current?.handleSubmit()}>
         Sign Up
       </Button>
@@ -101,6 +102,7 @@ function Form({
         variant="outline"
         borderColor="primary.500"
         mt={3}
+        size="lg"
         leftIcon={<GoogleIcon width={20} height={20} />}>
         Continue with Google
       </Button>

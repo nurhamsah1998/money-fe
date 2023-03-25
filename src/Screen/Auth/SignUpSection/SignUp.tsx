@@ -49,6 +49,7 @@ function SignUp({navigation}: {navigation: any}) {
           </Typography>
           <Button
             mt={3}
+            size="lg"
             onPress={() => navigation.goBack()}
             colorScheme="success">
             Sign In

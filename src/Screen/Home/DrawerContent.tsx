@@ -65,7 +65,7 @@ const DrawerContent = (props: any) => {
         </Box>
       </DrawerContentScrollView>
       <Box p={3}>
-        <Button colorScheme="muted">Log out</Button>
+        <Button colorScheme="gray">Log out</Button>
       </Box>
     </Box>
   );

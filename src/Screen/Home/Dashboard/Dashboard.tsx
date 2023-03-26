@@ -6,16 +6,16 @@ import {Box} from 'native-base';
 import {StyleSheet} from 'react-native';
 
 import BackgroundHeader from './BackgroundHeader';
-import {theme} from 'src/Theme/theme';
+import {NavigationProp} from '@react-navigation/native';
 import Typography from 'Component/Common/Typography';
 import BoxContent from './BoxContent';
 
-function Dashboard() {
+function Dashboard({navigation}: {navigation?: any}) {
   const dispatch = useDispatch();
-  const windowHeight = Dimensions.get('window').height;
+
   return (
-    <SafeAreaView style={{flex: 1}}>
-      <BackgroundHeader />
+    <SafeAreaView>
+      <BackgroundHeader navigation={navigation} />
       <Box style={style.balance}>
         <Typography style={style.labelMoneyBalance}>Your Balance</Typography>
         <Typography fontSize="4xl" style={style.amountMoneyBalance}>

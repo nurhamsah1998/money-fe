@@ -15,40 +15,32 @@ function BoxContent() {
       bgColor="white"
       style={style.boxInformation}
       borderRadius={20}
-      mx={2}
-      p={3}>
+      mx={4}
+      p={3}
+      flexDirection="row"
+      justifyContent="space-between">
       <Box flexDirection="row">
         <Ionicons
           name="md-arrow-up"
-          size={40}
+          size={25}
           color={theme.colors.primary[500]}
         />
         <Box flexDirection="column" ml={2}>
-          <Typography>Current Income / Months</Typography>
-          <Typography
-            fontSize="xl"
-            fontWeight="semibold"
-            style={style.IncomeTopAmount}>
-            + Rp200.000
-          </Typography>
+          <Typography>Income</Typography>
+          <Typography style={style.IncomeTopAmount}>+ Rp200.000</Typography>
           <IconTextList title="23/09/2023" />
         </Box>
       </Box>
-      <Box flexDirection="row" mt={5}>
+      <Box flexDirection="row">
         <Ionicons
           name="md-arrow-down"
-          size={40}
+          size={25}
           color={theme.colors.red[500]}
         />
         <Box flexDirection="column" ml={2}>
-          <Typography>Current Expense / Months</Typography>
-          <Typography
-            fontSize="xl"
-            fontWeight="semibold"
-            style={style.ExpenseTopAmount}>
-            - Rp5.300
-          </Typography>
-          <IconTextList title="23/09/2023" />
+          <Typography>Expense</Typography>
+          <Typography style={style.ExpenseTopAmount}>- Rp5.300</Typography>
+          <IconTextList title="02/02/2023" />
         </Box>
       </Box>
     </Box>

@@ -19,7 +19,7 @@ const DrawerContent = (props: any) => {
           position="relative"
           overflow="hidden"
           marginTop={-15}
-          backgroundColor={theme.colors.secondary[500]}
+          backgroundColor={theme.colors.primary[400]}
           borderBottomLeftRadius={30}
           height={windowHeight / 3.0}>
           <Box
@@ -28,7 +28,7 @@ const DrawerContent = (props: any) => {
             left="-24%"
             width={200}
             height={200}
-            bgColor="secondary.400"
+            bgColor="primary.500"
             opacity={0.6}
             rounded="full"></Box>
           <Box
@@ -37,7 +37,7 @@ const DrawerContent = (props: any) => {
             right="-24%"
             width={130}
             height={130}
-            bgColor="secondary.400"
+            bgColor="primary.500"
             opacity={0.6}
             rounded="full"></Box>
           <Avatar
@@ -65,7 +65,7 @@ const DrawerContent = (props: any) => {
         </Box>
       </DrawerContentScrollView>
       <Box p={3}>
-        <Button colorScheme="gray">Log out</Button>
+        <Button colorScheme="orange">Log out</Button>
       </Box>
     </Box>
   );

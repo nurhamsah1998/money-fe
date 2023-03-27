@@ -2,19 +2,20 @@ import * as React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {createDrawerNavigator} from '@react-navigation/drawer';
-import Dashboard from './Dashboard/Dashboard';
 import {theme} from 'src/Theme/theme';
+import Dashboard from './Dashboard/Dashboard';
 import {View, Button} from 'react-native';
 import DrawerContent from './DrawerContent';
+import Expenses from './Expenses/Expenses';
+import Income from './Income/Income';
 
 function HomeNavigator() {
   const Tab = createBottomTabNavigator();
   const Drawer = createDrawerNavigator();
   const iconNavbar = [
     {iconName: 'home', name: 'Home'},
-    {iconName: 'search', name: 'Search'},
-    {iconName: 'wysiwyg', name: 'Orders'},
-    {iconName: 'account-circle', name: 'Account'},
+    {iconName: 'search', name: 'Income'},
+    {iconName: 'wysiwyg', name: 'Expenses'},
   ];
   const iconDrawerNavbar = [
     {iconName: 'home', name: 'Dashboard Screen'},
@@ -33,7 +34,7 @@ function HomeNavigator() {
       <Tab.Navigator
         screenOptions={({route}) => ({
           tabBarIcon: ({focused, color, size}) => {
-            let iconName;
+            let iconName: any;
             const pick = iconNavbar.find(i => i?.name === route.name);
             if (pick) {
               iconName = focused ? pick.iconName : pick.iconName;
@@ -56,6 +57,8 @@ function HomeNavigator() {
           },
         })}>
         <Tab.Screen name="Home" component={Dashboard} />
+        <Tab.Screen name="Income" component={Income} />
+        <Tab.Screen name="Expenses" component={Expenses} />
       </Tab.Navigator>
     );
   };
@@ -67,7 +70,7 @@ function HomeNavigator() {
         screenOptions={({route}) => ({
           headerShown: false,
           drawerIcon: ({focused, color, size}) => {
-            let iconName;
+            let iconName: any;
             const pick = iconDrawerNavbar.find(i => i?.name === route.name);
             if (pick) {
               iconName = focused ? pick.iconName : pick.iconName;
@@ -75,8 +78,8 @@ function HomeNavigator() {
             // You can return any component that you like here!
             return <Ionicons name={iconName} size={size} color={color} />;
           },
-          drawerActiveBackgroundColor: theme.colors.secondary[200],
-          drawerActiveTintColor: theme.colors.secondary[500],
+          drawerActiveBackgroundColor: theme.colors.primary[200],
+          drawerActiveTintColor: theme.colors.primary[500],
         })}
         initialRouteName="Dashboard Screen">
         <Drawer.Screen name="Dashboard Screen" component={DashboardScreen} />

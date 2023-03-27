@@ -53,7 +53,6 @@ function HomeNavigator() {
             right: 10,
             borderRadius: 20,
             shadowColor: '#000',
-            // backgroundColor: 'pink',
           },
         })}>
         <Tab.Screen name="Home" component={Dashboard} />

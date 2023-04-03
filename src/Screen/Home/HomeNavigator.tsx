@@ -34,7 +34,7 @@ function HomeNavigator() {
       <Tab.Navigator
         screenOptions={({route}) => ({
           tabBarIcon: ({focused, color, size}) => {
-            let iconName: any;
+            let iconName;
             const pick = iconNavbar.find(i => i?.name === route.name);
             if (pick) {
               iconName = focused ? pick.iconName : pick.iconName;
@@ -69,7 +69,7 @@ function HomeNavigator() {
         screenOptions={({route}) => ({
           headerShown: false,
           drawerIcon: ({focused, color, size}) => {
-            let iconName: any;
+            let iconName;
             const pick = iconDrawerNavbar.find(i => i?.name === route.name);
             if (pick) {
               iconName = focused ? pick.iconName : pick.iconName;

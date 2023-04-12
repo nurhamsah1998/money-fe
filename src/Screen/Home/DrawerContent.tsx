@@ -60,7 +60,7 @@ const DrawerContent = (props: any) => {
             </Typography>
           </Box>
         </Box>
-        <Box>
+        <Box mt={5}>
           <DrawerItemList {...props} />
         </Box>
       </DrawerContentScrollView>

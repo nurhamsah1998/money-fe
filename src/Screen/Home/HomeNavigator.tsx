@@ -13,15 +13,15 @@ function HomeNavigator() {
   const Tab = createBottomTabNavigator();
   const Drawer = createDrawerNavigator();
   const iconNavbar = [
+    {iconName: 'trending-up', name: 'Income'},
     {iconName: 'home', name: 'Home'},
-    {iconName: 'search', name: 'Income'},
-    {iconName: 'wysiwyg', name: 'Expenses'},
+    {iconName: 'trending-down', name: 'Expenses'},
   ];
   const iconDrawerNavbar = [
-    {iconName: 'home', name: 'Dashboard Screen'},
-    {iconName: 'search', name: 'Search'},
+    {iconName: 'apps-sharp', name: 'Dashboard Screen'},
+    {iconName: 'ios-settings', name: 'Setting'},
   ];
-  function NotificationsScreen() {
+  function Setting() {
     return (
       <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
         <Button title="Go back home" />
@@ -54,9 +54,10 @@ function HomeNavigator() {
             borderRadius: 20,
             shadowColor: '#000',
           },
+          tabBarLabelPosition: 'beside-icon',
         })}>
-        <Tab.Screen name="Home" component={Dashboard} />
         <Tab.Screen name="Income" component={Income} />
+        <Tab.Screen name="Home" component={Dashboard} />
         <Tab.Screen name="Expenses" component={Expenses} />
       </Tab.Navigator>
     );
@@ -69,7 +70,7 @@ function HomeNavigator() {
         screenOptions={({route}) => ({
           headerShown: false,
           drawerIcon: ({focused, color, size}) => {
-            let iconName;
+            let iconName: any;
             const pick = iconDrawerNavbar.find(i => i?.name === route.name);
             if (pick) {
               iconName = focused ? pick.iconName : pick.iconName;
@@ -82,7 +83,7 @@ function HomeNavigator() {
         })}
         initialRouteName="Dashboard Screen">
         <Drawer.Screen name="Dashboard Screen" component={DashboardScreen} />
-        <Drawer.Screen name="Notifications" component={NotificationsScreen} />
+        <Drawer.Screen name="Setting" component={Setting} />
       </Drawer.Navigator>
     </>
   );

@@ -4,7 +4,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import {theme} from 'src/Theme/theme';
 import Dashboard from './Dashboard/Dashboard';
-import {View, Button} from 'react-native';
+import {View, Button, TouchableOpacity} from 'react-native';
 import DrawerContent from './DrawerContent';
 import Expenses from './Expenses/Expenses';
 import Income from './Income/Income';
@@ -13,9 +13,9 @@ function HomeNavigator() {
   const Tab = createBottomTabNavigator();
   const Drawer = createDrawerNavigator();
   const iconNavbar = [
-    {iconName: 'trending-up', name: 'Income'},
     {iconName: 'home', name: 'Home'},
-    {iconName: 'trending-down', name: 'Expenses'},
+    {iconName: 'md-chevron-up-circle-sharp', name: 'Income'},
+    {iconName: 'md-chevron-down-circle-sharp', name: 'Expenses'},
   ];
   const iconDrawerNavbar = [
     {iconName: 'apps-sharp', name: 'Dashboard Screen'},
@@ -34,7 +34,7 @@ function HomeNavigator() {
       <Tab.Navigator
         screenOptions={({route}) => ({
           tabBarIcon: ({focused, color, size}) => {
-            let iconName;
+            let iconName: any;
             const pick = iconNavbar.find(i => i?.name === route.name);
             if (pick) {
               iconName = focused ? pick.iconName : pick.iconName;
@@ -43,7 +43,7 @@ function HomeNavigator() {
             return <Ionicons name={iconName} size={size} color={color} />;
           },
           tabBarActiveTintColor: theme.colors.primary[500],
-          tabBarInactiveTintColor: theme.colors.primary[500],
+          tabBarInactiveTintColor: theme.colors.disable[400],
           headerShown: false,
           tabBarStyle: {
             position: 'absolute',
@@ -54,10 +54,10 @@ function HomeNavigator() {
             borderRadius: 20,
             shadowColor: '#000',
           },
-          tabBarLabelPosition: 'beside-icon',
+          tabBarLabelStyle: {marginTop: -6, marginBottom: 7},
         })}>
-        <Tab.Screen name="Income" component={Income} />
         <Tab.Screen name="Home" component={Dashboard} />
+        <Tab.Screen name="Income" component={Income} />
         <Tab.Screen name="Expenses" component={Expenses} />
       </Tab.Navigator>
     );

@@ -117,14 +117,12 @@ const styles = StyleSheet.create({
   },
   trafic: {
     flexDirection: 'row',
-    // justifyContent: 'space-between',
   },
   traficStatistic: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: 5,
     marginTop: -4,
-    // justifyContent: 'space-between',
   },
   containerInfo: {
     backgroundColor: '#fff',

@@ -6,6 +6,7 @@ import Router from './Router';
 import SplashScreen from 'react-native-splash-screen';
 import {NavigationContainer} from '@react-navigation/native';
 import {NativeBaseProvider} from 'native-base';
+import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import {theme} from './src/Theme/theme';
 
 function App() {
@@ -15,9 +16,11 @@ function App() {
   return (
     <Provider store={store}>
       <NativeBaseProvider theme={theme}>
-        <NavigationContainer>
-          <Router />
-        </NavigationContainer>
+        <GestureHandlerRootView style={{flex: 1}}>
+          <NavigationContainer>
+            <Router />
+          </NavigationContainer>
+        </GestureHandlerRootView>
       </NativeBaseProvider>
     </Provider>
   );

@@ -13,6 +13,7 @@ module.exports = {
           src: './src',
         },
       },
+      'react-native-reanimated/plugin',
     ],
     'react-native-reanimated/plugin',
   ],

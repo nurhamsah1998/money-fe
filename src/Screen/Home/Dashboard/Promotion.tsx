@@ -1,6 +1,7 @@
 import React from 'react';
 import {Text, Box} from 'native-base';
-import {StyleSheet, Dimensions, FlatList, Image} from 'react-native';
+import {StyleSheet, Dimensions, Image} from 'react-native';
+import Carousel from 'react-native-reanimated-carousel';
 
 interface PROMO {
   title: string;
@@ -8,8 +9,8 @@ interface PROMO {
   img: any;
 }
 
-const winHeight = Dimensions.get('window').height;
 function PromotionSection() {
+  const width = Dimensions.get('window').width;
   const promoImg: PROMO[] = [
     {
       title: 'Activity',
@@ -35,23 +36,39 @@ function PromotionSection() {
 
   return (
     <Box style={styles.containerPromotion}>
-      <Text>Promotion</Text>
-      <FlatList
-        horizontal
-        data={promoImg}
-        ItemSeparatorComponent={() => <Box style={{width: 20, height: 20}} />}
-        renderItem={({item}) => <Image source={item.img} />}
-        keyExtractor={item => item.title}
-      />
+      <Text style={styles.label}>Promotion</Text>
+      <Box style={{paddingBottom: 20}}>
+        <Carousel
+          loop
+          width={width}
+          height={width / 2}
+          autoPlay={true}
+          data={promoImg}
+          scrollAnimationDuration={5000}
+          renderItem={({item}) => (
+            <Box
+              style={{
+                alignSelf: 'center',
+                borderRadius: 20,
+                elevation: 4,
+                shadowColor: '#000',
+              }}>
+              <Image style={{alignSelf: 'center'}} source={item.img} />
+            </Box>
+          )}
+        />
+      </Box>
     </Box>
   );
 }
 
 const styles = StyleSheet.create({
   containerPromotion: {
-    marginHorizontal: 20,
+    marginBottom: 80,
+  },
+  label: {
+    paddingHorizontal: 20,
     marginTop: 10,
-    marginBottom: 75,
   },
 });
 export default PromotionSection;
